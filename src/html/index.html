@@ -3,34 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
+    <title>Document</title>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/c75582e3c5.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <div class="page">
-      <include
-        src="./partials/header.html"
-        title="Bienvenidos a Adalab"
-      ></include>
-      <include src="./partials/main.html"></include>
-      <include
-        src="./partials/link.html"
-        aClass="link__adalab"
-        text="Adalab"
-        url="https://adalab.es"
-      ></include>
-      <include
-        src="./partials/link.html"
-        aClass="link__github"
-        text="GitHub"
-        url="https://github.com"
-      ></include>
-      <include src="./partials/footer.html"></include>
+      <header class="header">
+        <nav>
+          <form method="GET" action="">
+            <label for="userSearch">
+              Buscador de series
+              <input
+                class="js-header-search-form"
+                type="text"
+                id="userSearch"
+                name="userSearch"
+                placeholder="Búsqueda"
+              />
+            </label>
+            <button class="js-button-search" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </nav>
+      </header>
     </div>
     <script src="./assets/js/main.js"></script>
   </body>
