@@ -21,7 +21,7 @@ function getSeries(name) {
     .then((data) => {
       console.log(data);
 
-      if (data !== []) {
+      if (data.length === 0) {
         let textNotResult = document.createElement('p');
         textNotResult.innerHTML =
           'No hay resultados. Por favor, revisa la búsqueda.';
@@ -46,6 +46,6 @@ function renderSingleElement(element) {
   const image = element.image ? element.image.medium : 'placeholder';
   return `<li>
     <img src="${image}" class="main--container--image"/>
-    <p> class="class="main--container--text""${element.name}</p>
+    <p class="main--container--text">${element.name}</p>
     </li>`;
 }
