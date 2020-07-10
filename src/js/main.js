@@ -4,6 +4,7 @@ const searchForm = document.querySelector('.js-search__form');
 const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
 let results = [];
+let favourites = [];
 
 searchButton.addEventListener('click', onSearch);
 
@@ -49,7 +50,9 @@ function printSeries(data) {
 }
 
 function renderSingleElement(element) {
-  const image = element.image ? element.image.medium : 'placeholder';
+  const image = element.image
+    ? element.image.medium
+    : `https://via.placeholder.com/210x295/ffffff/666666/?text=${element.name}`;
   return `<li class="main--list__element js-list--element" data-id="${element.id}">
     <div class="list__container">
     <img src="${image}" class="list__container--image"/>
@@ -68,7 +71,14 @@ function printNotResults() {
 function onClickSeries(ev) {
   ev.currentTarget.classList.toggle('js-selected');
   const serieIdentifier = parseInt(ev.currentTarget.dataset.id);
-
   let serie = results.find((e) => e.show.id === serieIdentifier);
-  console.log(serie);
+  favourites.push(serie);
+  localStorage.setItem('favourites', JSON.stringify(favourites));
+  printFavourites();
+}
+
+function printFavourites() {
+  for (const favourite of favourites) {
+    console.log(favourite);
+  }
 }
