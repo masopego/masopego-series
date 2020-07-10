@@ -20,21 +20,32 @@ function getSeries(name) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      const seriesList = document.createElement('ul');
-      let listElement;
-      data.forEach((element) => {
-        listElement += renderSingleElement(element);
-      });
-      seriesList.innerHTML = listElement;
-      searchResults.appendChild(seriesList);
+
+      if (data !== []) {
+        let textNotResult = document.createElement('p');
+        textNotResult.innerHTML =
+          'No hay resultados. Por favor, revisa la búsqueda.';
+        searchResults.appendChild(textNotResult);
+      } else {
+        const seriesList = document.createElement('ul');
+        let listElement = '';
+        console.log(listElement);
+
+        data.forEach((element) => {
+          listElement += renderSingleElement(element.show);
+        });
+        seriesList.innerHTML = listElement;
+        searchResults.appendChild(seriesList);
+      }
     });
 }
 
 searchButton.addEventListener('click', hunterSeries);
 
 function renderSingleElement(element) {
+  const image = element.image ? element.image.medium : 'placeholder';
   return `<li>
-    <img src="${element.show.image.medium}"/>
-    <p>${element.show.name}</p>
+    <img src="${image}" class="main--container--image"/>
+    <p> class="class="main--container--text""${element.name}</p>
     </li>`;
 }
