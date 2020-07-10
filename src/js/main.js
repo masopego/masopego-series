@@ -3,6 +3,7 @@
 const searchForm = document.querySelector('.js-search__form');
 const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
+let results = [];
 
 searchButton.addEventListener('click', onSearch);
 
@@ -20,6 +21,7 @@ function getSeries(search) {
   fetch(`http://api.tvmaze.com/search/shows?q=${search}`)
     .then((response) => response.json())
     .then((data) => {
+      results = data;
       console.log('Results', data);
       if (data.length === 0) {
         printNotResults();
@@ -48,7 +50,7 @@ function printSeries(data) {
 
 function renderSingleElement(element) {
   const image = element.image ? element.image.medium : 'placeholder';
-  return `<li class="main--list__element js-list--element">
+  return `<li class="main--list__element js-list--element" data-id="${element.id}">
     <div class="list__container">
     <img src="${image}" class="list__container--image"/>
     <i class="list__container--icon icon icon-star fas fa-star"></i>
@@ -65,4 +67,8 @@ function printNotResults() {
 
 function onClickSeries(ev) {
   ev.currentTarget.classList.toggle('js-selected');
+  const serieIdentifier = parseInt(ev.currentTarget.dataset.id);
+
+  let serie = results.find((e) => e.show.id === serieIdentifier);
+  console.log(serie);
 }
