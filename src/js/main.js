@@ -36,6 +36,15 @@ function getSeries(name) {
         });
         seriesList.innerHTML = listElement;
         searchResults.appendChild(seriesList);
+
+        let seriesElement = document.querySelectorAll('.js-list--element');
+        seriesElement.forEach((element) => {
+          element.addEventListener('click', onClickSeries);
+        });
+      }
+
+      function onClickSeries(ev) {
+        ev.currentTarget.classList.toggle('js-');
       }
     });
 }
@@ -44,9 +53,9 @@ searchButton.addEventListener('click', hunterSeries);
 
 function renderSingleElement(element) {
   const image = element.image ? element.image.medium : 'placeholder';
-  return `<li>
-    <img src="${image}" class="main--container--image"/>
+  return `<li class="main__list--element js-list--element">
+    <img src="${image}" class="list__element--image"/>
     <i class="fas fa-star"></i>
-    <p class="main--container--text">${element.name}</p>
+    <p class="list__element--text">${element.name}</p>
     </li>`;
 }
