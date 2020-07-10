@@ -1,5 +1,35 @@
-.main__list--element {
-  color: aquamarine;
+.main {
+  margin-top: rem(20);
+
+  &--list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__element {
+      display: inline-block;
+      margin: rem(15);
+      padding: rem(15);
+      color: aquamarine;
+      border-radius: rem(5);
+    }
+  }
+}
+
+.list__container {
+  position: relative;
+
+  &--icon {
+    position: absolute;
+    top: 5;
+    left: 0;
+  }
 }
 
 .js-selected {

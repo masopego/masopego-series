@@ -16,30 +16,8 @@
   </head>
 
   <body>
-    <div class="page">
-      <header class="header">
-        <nav>
-          <form method="GET" action="">
-            <label for="userSearch">
-              Buscador de series
-              <input
-                class="js-search__form"
-                type="text"
-                id="userSearch"
-                name="userSearch"
-                placeholder="Búsqueda"
-              />
-            </label>
-            <button class="js-search__button" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </form>
-        </nav>
-      </header>
-      <main class="main">
-        <section class="js-search__container"></section>
-      </main>
-    </div>
+    <include src="./partials/header.html"></include>
+    <include src="./partials/main.html"></include>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>

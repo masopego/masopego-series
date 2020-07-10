@@ -1,0 +1,15 @@
+html {
+  font-size: $font-regular;
+}
+
+.wrapper {
+  padding: rem(15);
+
+  @include tablet {
+    padding: rem(30);
+  }
+
+  @include display {
+    padding: rem(45);
+  }
+}

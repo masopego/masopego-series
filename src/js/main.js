@@ -25,6 +25,7 @@ function getSeries(name) {
         gettextNotResult();
       } else {
         const seriesList = document.createElement('ul');
+        seriesList.classList.add('main--list');
         let listElement = '';
         console.log(listElement);
 
@@ -50,9 +51,11 @@ searchButton.addEventListener('click', hunterSeries);
 
 function renderSingleElement(element) {
   const image = element.image ? element.image.medium : 'placeholder';
-  return `<li class="main__list--element js-list--element">
-    <img src="${image}" class="list__element--image"/>
-    <i class="fas fa-star"></i>
+  return `<li class="main--list__element js-list--element">
+    <div class="list__container">
+    <img src="${image}" class="list__container--image"/>
+    <i class="list__container--icon icon icon-star fas fa-star"></i>
+    <div>
     <p class="list__element--text">${element.name}</p>
     </li>`;
 }
