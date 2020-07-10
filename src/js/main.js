@@ -22,10 +22,7 @@ function getSeries(name) {
       console.log(data);
 
       if (data.length === 0) {
-        let textNotResult = document.createElement('p');
-        textNotResult.innerHTML =
-          'No hay resultados. Por favor, revisa la búsqueda.';
-        searchResults.appendChild(textNotResult);
+        gettextNotResult();
       } else {
         const seriesList = document.createElement('ul');
         let listElement = '';
@@ -44,7 +41,7 @@ function getSeries(name) {
       }
 
       function onClickSeries(ev) {
-        ev.currentTarget.classList.toggle('js-');
+        ev.currentTarget.classList.toggle('js-selected');
       }
     });
 }
@@ -58,4 +55,10 @@ function renderSingleElement(element) {
     <i class="fas fa-star"></i>
     <p class="list__element--text">${element.name}</p>
     </li>`;
+}
+
+function gettextNotResult() {
+  let textNotResult = document.createElement('p');
+  textNotResult.innerHTML = 'No hay resultados. Por favor, revisa la búsqueda.';
+  searchResults.appendChild(textNotResult);
 }
