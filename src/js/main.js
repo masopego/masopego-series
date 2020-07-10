@@ -4,6 +4,8 @@ const searchForm = document.querySelector('.js-search__form');
 const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
 
+let results = [];
+
 function hunterSeries(ev) {
   ev.preventDefault();
   let userValue = searchForm.value;
@@ -19,6 +21,7 @@ function getSeries(name) {
   fetch(`http://api.tvmaze.com/search/shows?q=${name}`)
     .then((response) => response.json())
     .then((data) => {
+      results = data;
       console.log(data);
 
       if (data.length === 0) {
@@ -43,6 +46,7 @@ function getSeries(name) {
 
       function onClickSeries(ev) {
         ev.currentTarget.classList.toggle('js-selected');
+        console.log('Me han clicado', ev, ev.target.getAttribute('data-id'));
       }
     });
 }
@@ -51,7 +55,7 @@ searchButton.addEventListener('click', hunterSeries);
 
 function renderSingleElement(element) {
   const image = element.image ? element.image.medium : 'placeholder';
-  return `<li class="main--list__element js-list--element">
+  return `<li class="main--list__element js-list--element" data-id="${element}">
     <div class="list__container">
     <img src="${image}" class="list__container--image"/>
     <i class="list__container--icon icon icon-star fas fa-star"></i>
