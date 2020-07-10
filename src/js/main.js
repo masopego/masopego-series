@@ -5,11 +5,16 @@ const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
 const favouriteResults = document.querySelector('.js-favourite__container');
 let results = [];
+let favourites = [];
 
-const favouritesSaved = JSON.parse(localStorage.getItem('favourites'));
-console.log(favouritesSaved);
-let favourites = favouritesSaved;
-printFavourites();
+function getfavourites() {
+  const favouritesSaved = JSON.parse(localStorage.getItem('favourites'));
+  if (favouritesSaved && favouritesSaved.length > 0) {
+    favourites = favouritesSaved;
+    printFavourites();
+  }
+}
+getfavourites();
 
 searchButton.addEventListener('click', onSearch);
 
@@ -77,9 +82,16 @@ function onClickSeries(ev) {
   ev.currentTarget.classList.toggle('js-selected');
   const serieIdentifier = parseInt(ev.currentTarget.dataset.id);
   let serie = results.find((e) => e.show.id === serieIdentifier);
-  favourites.push(serie);
-  localStorage.setItem('favourites', JSON.stringify(favourites));
 
+  let seriesInFavourite = favourites.findIndex(
+    (element) => element.show.id === serieIdentifier
+  );
+  if (seriesInFavourite === -1) {
+    favourites.push(serie);
+  } else {
+    favourites.splice(seriesInFavourite, 1);
+  }
+  localStorage.setItem('favourites', JSON.stringify(favourites));
   printFavourites();
 }
 
@@ -88,7 +100,6 @@ function printFavourites() {
   let favouriteList = document.createElement('ul');
   let favouritElement = '';
   for (const favourite of favourites) {
-    console.log(favourite);
     favouritElement += renderSingleElement(favourite.show);
   }
   favouriteList.innerHTML = favouritElement;
