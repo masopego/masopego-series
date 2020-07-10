@@ -5,7 +5,11 @@ const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
 const favouriteResults = document.querySelector('.js-favourite__container');
 let results = [];
-let favourites = [];
+
+const favouritesSaved = JSON.parse(localStorage.getItem('favourites'));
+console.log(favouritesSaved);
+let favourites = favouritesSaved;
+printFavourites();
 
 searchButton.addEventListener('click', onSearch);
 
