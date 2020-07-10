@@ -3,6 +3,7 @@
 const searchForm = document.querySelector('.js-search__form');
 const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
+const favouriteResults = document.querySelector('.js-favourite__container');
 let results = [];
 let favourites = [];
 
@@ -74,11 +75,18 @@ function onClickSeries(ev) {
   let serie = results.find((e) => e.show.id === serieIdentifier);
   favourites.push(serie);
   localStorage.setItem('favourites', JSON.stringify(favourites));
+
   printFavourites();
 }
 
 function printFavourites() {
+  favouriteResults.innerHTML = '';
+  let favouriteList = document.createElement('ul');
+  let favouritElement = '';
   for (const favourite of favourites) {
     console.log(favourite);
+    favouritElement += renderSingleElement(favourite.show);
   }
+  favouriteList.innerHTML = favouritElement;
+  favouriteResults.appendChild(favouriteList);
 }
