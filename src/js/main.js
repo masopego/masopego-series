@@ -4,7 +4,7 @@ const searchForm = document.querySelector('.js-search__form');
 const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
 
-function hunterSeries(ev) {
+function onSearch(ev) {
   ev.preventDefault();
   let userValue = searchForm.value;
   getSeries(userValue);
@@ -47,7 +47,7 @@ function getSeries(name) {
     });
 }
 
-searchButton.addEventListener('click', hunterSeries);
+searchButton.addEventListener('click', onSearch);
 
 function renderSingleElement(element) {
   const image = element.image ? element.image.medium : 'placeholder';
