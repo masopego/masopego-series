@@ -46,6 +46,7 @@ function renderSingleElement(element) {
   const image = element.image ? element.image.medium : 'placeholder';
   return `<li>
     <img src="${image}" class="main--container--image"/>
+    <i class="fas fa-star"></i>
     <p class="main--container--text">${element.name}</p>
     </li>`;
 }
