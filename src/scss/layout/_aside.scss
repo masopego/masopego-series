@@ -1,3 +1,21 @@
+.aside {
+  & .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.image__container {
+  border-radius: rem(5);
+  width: rem(200);
+
+  border-bottom: solid rem(1) $color-main;
+  &--img {
+    width: 100%;
+  }
+}
+
 button:disabled {
   display: none;
 }
