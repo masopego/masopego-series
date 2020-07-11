@@ -63,7 +63,14 @@ function renderSingleElement(element) {
   const image = element.image
     ? element.image.medium
     : `https://via.placeholder.com/210x295/ffffff/666666/?text=${element.name}`;
-  return `<li class="main--list__element js-list--element" data-id="${element.id}">
+
+  let additionalClass = '';
+  let isInFavourite = favourites.find((e) => e.show.id === element.id);
+  if (isInFavourite) {
+    additionalClass = 'js-selected';
+  }
+
+  return `<li class="list__element js-list--element ${additionalClass}" data-id="${element.id}">
     <div class="list__container">
     <img src="${image}" class="list__container--image"/>
     <i class="list__container--icon icon icon-star fas fa-star"></i>

@@ -11,14 +11,14 @@
       flex-direction: row;
       flex-wrap: wrap;
     }
+  }
 
-    &__element {
-      display: inline-block;
-      margin: rem(15);
-      padding: rem(15);
-      color: aquamarine;
-      border-radius: rem(5);
-    }
+  & .list__element {
+    display: inline-block;
+    margin: rem(15);
+    padding: rem(15);
+    color: aquamarine;
+    border-radius: rem(5);
   }
 }
 
@@ -35,4 +35,8 @@
 .js-selected {
   background-color: aquamarine;
   color: white;
+
+  & .icon-star {
+    color: $color-secondary;
+  }
 }
