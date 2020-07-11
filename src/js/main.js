@@ -93,10 +93,10 @@ function renderFavouriteElement(element) {
     ? element.image.medium
     : `https://via.placeholder.com/210x295/ffffff/666666/?text=${element.name}`;
 
-  return `<li class="list__element js-list--element" data-id="${element.id}">
+  return `<li class="list__element js-list--element">
     <div class="list__container">
     <img src="${image}" class="list__container--image"/>
-    <i class=" icon icon-trash far fa-trash-alt js-favourite__trash"></i>
+    <i class=" icon icon-trash far fa-trash-alt js-favourite__trash" data-id="${element.id}"></i>
     <div>
     <p class="list__element--text">${element.name}</p>
     </li>`;
@@ -156,7 +156,17 @@ function clearFavourites() {
 }
 
 function onTrash(ev) {
-  alert('Holiiiiiiiss');
+  const serieIdentifier = parseInt(ev.target.dataset.id);
+  let seriesFavouritePosition = favourites.findIndex(
+    (element) => element.show.id === serieIdentifier
+  );
+  favourites.splice(seriesFavouritePosition, 1);
+  localStorage.setItem('favourites', JSON.stringify(favourites));
+  printFavourites();
+
+  if (favourites.length === 0) {
+    disableResetButton();
+  }
 }
 
 function enableResetButton() {
