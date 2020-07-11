@@ -13,6 +13,7 @@ function getfavourites() {
   if (favouritesSaved && favouritesSaved.length > 0) {
     favourites = favouritesSaved;
     printFavourites();
+    enableResetButton();
   }
 }
 getfavourites();
@@ -103,8 +104,12 @@ function onClickSeries(ev) {
   );
   if (seriesInFavourite === -1) {
     favourites.push(serie);
+    enableResetButton();
   } else {
     favourites.splice(seriesInFavourite, 1);
+    if (favourites.length === 0) {
+      disableResetButton();
+    }
   }
   localStorage.setItem('favourites', JSON.stringify(favourites));
   printFavourites();
@@ -127,4 +132,13 @@ function clearFavourites() {
   yetSelectedFavourites.forEach((element) => {
     element.classList.remove('js-selected');
   });
+  disableResetButton();
+}
+
+function enableResetButton() {
+  resetButton.removeAttribute('disabled');
+}
+
+function disableResetButton() {
+  resetButton.setAttribute('disabled', '');
 }
