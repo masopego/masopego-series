@@ -4,6 +4,7 @@ const searchForm = document.querySelector('.js-search__form');
 const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
 const favouriteResults = document.querySelector('.js-favourite__container');
+const resetButton = document.querySelector('.js-reset__button');
 let results = [];
 let favourites = [];
 
@@ -17,11 +18,18 @@ function getfavourites() {
 getfavourites();
 
 searchButton.addEventListener('click', onSearch);
+resetButton.addEventListener('click', onReset);
 
 function onSearch(ev) {
   ev.preventDefault();
   clearResults();
   getSeries(searchForm.value);
+}
+
+function onReset(ev) {
+  favourites = [];
+  localStorage.removeItem('favourites');
+  clearFavourites();
 }
 
 function clearResults() {
@@ -111,4 +119,12 @@ function printFavourites() {
   }
   favouriteList.innerHTML = favouritElement;
   favouriteResults.appendChild(favouriteList);
+}
+
+function clearFavourites() {
+  favouriteResults.innerHTML = '';
+  const yetSelectedFavourites = document.querySelectorAll('.js-selected');
+  yetSelectedFavourites.forEach((element) => {
+    element.classList.remove('js-selected');
+  });
 }
