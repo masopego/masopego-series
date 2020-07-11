@@ -88,6 +88,20 @@ function renderSingleElement(element) {
     </li>`;
 }
 
+function renderFavouriteElement(element) {
+  const image = element.image
+    ? element.image.medium
+    : `https://via.placeholder.com/210x295/ffffff/666666/?text=${element.name}`;
+
+  return `<li class="list__element js-list--element" data-id="${element.id}">
+    <div class="list__container">
+    <img src="${image}" class="list__container--image"/>
+    <i class=" icon icon-trash far fa-trash-alt js-favourite__trash"></i>
+    <div>
+    <p class="list__element--text">${element.name}</p>
+    </li>`;
+}
+
 function printNotResults() {
   let textNotResult = document.createElement('p');
   textNotResult.innerHTML = 'No hay resultados. Por favor, revisa la búsqueda.';
@@ -120,10 +134,16 @@ function printFavourites() {
   let favouriteList = document.createElement('ul');
   let favouritElement = '';
   for (const favourite of favourites) {
-    favouritElement += renderSingleElement(favourite.show);
+    favouritElement += renderFavouriteElement(favourite.show);
   }
   favouriteList.innerHTML = favouritElement;
   favouriteResults.appendChild(favouriteList);
+
+  const removedIcons = document.querySelectorAll('.js-favourite__trash');
+  console.log(removedIcons);
+  removedIcons.forEach((element) => {
+    element.addEventListener('click', onTrash);
+  });
 }
 
 function clearFavourites() {
@@ -133,6 +153,10 @@ function clearFavourites() {
     element.classList.remove('js-selected');
   });
   disableResetButton();
+}
+
+function onTrash(ev) {
+  alert('Holiiiiiiiss');
 }
 
 function enableResetButton() {
