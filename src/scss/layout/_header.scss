@@ -43,6 +43,10 @@
         width: 100%;
         letter-spacing: rem(3);
       }
+
+      & .button {
+        background-color: $color-medium;
+      }
     }
   }
 }
