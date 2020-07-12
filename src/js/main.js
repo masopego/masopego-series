@@ -93,7 +93,7 @@ function renderSingleElement(element) {
     <img src="${image}" class="list__container--image"/>
     <i class="list__container--icon icon icon-star fas fa-star"></i>
     <div>
-    <p class="list__element--text">${element.name}</p>
+    <h3 class="title title--list uppercase">${element.name}</h3>
     </li>`;
 }
 
@@ -109,7 +109,7 @@ function renderFavouriteElement(element) {
     ? element.rating.average
     : 'No disponible';
 
-  return `<li class="favourite__list--element js-list--element">
+  return `<li class="favourite__list--element">
     <div class="favourite__container">
     <img src="${image}" class="favourite__container--image"/>
     </div>
@@ -161,7 +161,6 @@ function printFavourites() {
   favouriteResults.appendChild(favouriteList);
 
   const removedIcons = document.querySelectorAll('.js-favourite__trash');
-  console.log(removedIcons);
   removedIcons.forEach((element) => {
     element.addEventListener('click', onTrash);
   });
@@ -183,6 +182,17 @@ function onTrash(ev) {
   );
   favourites.splice(seriesFavouritePosition, 1);
   localStorage.setItem('favourites', JSON.stringify(favourites));
+  const yetinList = document.querySelectorAll('.js-selected');
+  const yetinListArr = Array.from(yetinList);
+  let yetselected = yetinListArr.find(
+    (element) => parseInt(element.dataset.id) === serieIdentifier
+  );
+
+  console.log(yetselected);
+  if (yetselected) {
+    yetselected.classList.remove('js-selected');
+  }
+
   printFavourites();
 
   if (favourites.length === 0) {

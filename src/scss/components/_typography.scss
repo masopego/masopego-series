@@ -20,6 +20,13 @@ body {
     color: $color-medium-dark;
     text-align: center;
   }
+
+  &--list {
+    font-size: $font-small;
+    color: $color-dark;
+    text-decoration: underline;
+    line-height: rem(25);
+  }
 }
 
 .uppercase {

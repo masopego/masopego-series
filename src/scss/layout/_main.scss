@@ -17,9 +17,13 @@
   & .list__element {
     display: inline-block;
     margin: rem(15);
-    padding: rem(15);
-    color: aquamarine;
     border-radius: rem(5);
+    cursor: pointer;
+
+    & .title {
+      text-align: center;
+      margin-top: rem(10);
+    }
   }
 }
 
@@ -28,16 +32,30 @@
 
   &--icon {
     position: absolute;
-    top: 5;
-    left: 0;
+    top: rem(10);
+    left: rem(5);
+    font-size: $font-regular;
+    transition: font-size 0.2s ease-in, color 0.2s ease-in;
+  }
+
+  &--image {
+    border: 3px solid $color-light;
   }
 }
 
 .js-selected {
-  background-color: aquamarine;
-  color: white;
+  & .list__container--image {
+    box-shadow: rem(2) rem(1) rem(25) rem(-2) rgba(23, 32, 42, 1);
+    box-sizing: border-box;
+    border: 3px solid $color-extra-light;
+  }
 
   & .icon-star {
     color: $color-secondary;
+    font-size: $font-extra-medium;
+  }
+  & .title {
+    color: $color-secondary;
+    text-decoration: none;
   }
 }
