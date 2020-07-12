@@ -13,3 +13,9 @@ html {
     padding: rem(45);
   }
 }
+
+.page {
+  @include tablet {
+    margin-left: rem(320);
+  }
+}

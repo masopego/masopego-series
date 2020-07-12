@@ -6,14 +6,23 @@ $display: 1280px;
 /* FONT SIZES */
 
 $font-regular: 16;
+$font-small: rem(14);
+$font-extra-medium: rem(18);
+$font-medium: rem(20);
+$font-large: rem(24);
 
 /* FONT FAMILY */
+
+$font-primary: 'Lato', sans-serif;
+$font-secondary: 'Oswald', sans-serif;
+$font-tertiary: 'Crimson Text', serif;
 
 /* COLORS */
 
 $color-light: #fbfcfc;
-$color-medium: #d5d8dc;
+$color-medium-dark: #babfcc;
+$color-medium: #efefef;
 $color-dark: #17202a;
-$color-main: #fef9e7;
+$color-extra-light: #fcd633;
 $color-secondary: #f39c12;
 $color-tertiary: #af601a;

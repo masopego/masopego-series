@@ -1,0 +1,27 @@
+body {
+  font-family: $font-primary;
+}
+
+.title {
+  font-size: $font-secondary;
+  font-weight: 600;
+
+  &--medium {
+    font-size: $font-large;
+  }
+
+  &--small {
+    font-size: $font-small;
+    color: $color-tertiary;
+  }
+
+  &--separator {
+    font-size: $font-extra-medium;
+    color: $color-medium-dark;
+    text-align: center;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

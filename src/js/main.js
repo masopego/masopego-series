@@ -5,6 +5,9 @@ const searchButton = document.querySelector('.js-search__button');
 const searchResults = document.querySelector('.js-search__container');
 const favouriteResults = document.querySelector('.js-favourite__container');
 const resetButton = document.querySelector('.js-reset__button');
+const aside = document.querySelector('.js-aside');
+const menuHamburger = document.querySelector('.js-hamburger');
+const iconClose = document.querySelector('.js-close');
 let results = [];
 let favourites = [];
 
@@ -20,6 +23,8 @@ getfavourites();
 
 searchButton.addEventListener('click', onSearch);
 resetButton.addEventListener('click', onReset);
+menuHamburger.addEventListener('click', onMenuChange);
+iconClose.addEventListener('click', onMenuChange);
 
 function onSearch(ev) {
   ev.preventDefault();
@@ -31,6 +36,10 @@ function onReset(ev) {
   favourites = [];
   localStorage.removeItem('favourites');
   clearFavourites();
+}
+
+function onMenuChange(ev) {
+  aside.classList.toggle('js-opened');
 }
 
 function clearResults() {
@@ -93,12 +102,23 @@ function renderFavouriteElement(element) {
     ? element.image.medium
     : `https://via.placeholder.com/210x295/ffffff/666666/?text=${element.name}`;
 
-  return `<li class="list__element js-list--element">
-    <div class="list__container">
-    <img src="${image}" class="list__container--image"/>
+  const genre =
+    element.genres.length > 0 ? element.genres[0] : 'Género no definido';
+
+  const average = element.rating.average
+    ? element.rating.average
+    : 'No disponible';
+
+  return `<li class="favourite__list--element js-list--element">
+    <div class="favourite__container">
+    <img src="${image}" class="favourite__container--image"/>
+    </div>
+    <div class="favourite__paragrah">
+    <h3 class="favourite__paragrah--text title title--small">${element.name}</h3>
     <i class=" icon icon-trash far fa-trash-alt js-favourite__trash" data-id="${element.id}"></i>
-    <div>
-    <p class="list__element--text">${element.name}</p>
+    <p class="favourite__paragrah--genres"> ${genre}</p>
+    <small class="favourite__paragrah--average"> Puntuación: <span>${average}</span></small>
+    </div>
     </li>`;
 }
 
@@ -132,6 +152,7 @@ function onClickSeries(ev) {
 function printFavourites() {
   favouriteResults.innerHTML = '';
   let favouriteList = document.createElement('ul');
+  favouriteList.classList.add('favourite__list');
   let favouritElement = '';
   for (const favourite of favourites) {
     favouritElement += renderFavouriteElement(favourite.show);

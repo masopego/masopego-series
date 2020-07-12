@@ -16,5 +16,9 @@
     align-items: center;
     background-color: $color-tertiary;
     border-radius: rem(5);
+
+    @include tablet {
+      display: none;
+    }
   }
 }

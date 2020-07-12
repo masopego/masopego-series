@@ -1,0 +1,14 @@
+.button {
+  height: rem(60);
+  text-align: center;
+  font-size: $font-medium;
+  border: none;
+  width: 100%;
+
+  &--remove {
+    padding: rem(5);
+    background-color: $color-extra-light;
+    color: $color-dark;
+    letter-spacing: rem(3);
+  }
+}
