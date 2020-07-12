@@ -1,11 +1,11 @@
 .icon {
   background-repeat: no-repeat;
   background-position: center;
+  width: rem(20);
+  height: rem(20);
 
   &.icon-hamburger {
     background-image: url('../images/ico-menu.svg');
-    width: rem(16);
-    height: rem(14);
   }
 
   &.icon-star {
@@ -15,5 +15,9 @@
 
   &.icon--search {
     color: $color-dark;
+  }
+
+  &.icon--onsearch {
+    color: $color-light;
   }
 }

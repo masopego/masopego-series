@@ -8,6 +8,8 @@ const resetButton = document.querySelector('.js-reset__button');
 const aside = document.querySelector('.js-aside');
 const menuHamburger = document.querySelector('.js-hamburger');
 const iconClose = document.querySelector('.js-close');
+const searchScrolled = document.querySelector('.js-search-scrolled');
+
 let results = [];
 let favourites = [];
 
@@ -25,6 +27,11 @@ searchButton.addEventListener('click', onSearch);
 resetButton.addEventListener('click', onReset);
 menuHamburger.addEventListener('click', onMenuChange);
 iconClose.addEventListener('click', onMenuChange);
+document.addEventListener('scroll', onScroll);
+searchScrolled.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  searchForm.focus();
+});
 
 function onSearch(ev) {
   ev.preventDefault();
@@ -40,6 +47,12 @@ function onReset(ev) {
 
 function onMenuChange(ev) {
   aside.classList.toggle('js-opened');
+}
+
+function onScroll(ev) {
+  window.pageYOffset >= 150
+    ? (searchScrolled.style.display = 'block')
+    : (searchScrolled.style.display = 'none');
 }
 
 function clearResults() {

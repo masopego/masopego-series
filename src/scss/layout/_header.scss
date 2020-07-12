@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $color-tertiary;
+    background-color: $color-secondary;
     border-radius: rem(5);
 
     @include tablet {
@@ -41,6 +41,7 @@
         border: none;
         background-color: $color-medium;
         width: 100%;
+        letter-spacing: rem(3);
       }
     }
   }

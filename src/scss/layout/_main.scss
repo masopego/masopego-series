@@ -1,6 +1,7 @@
 .main {
   margin-top: rem(20);
   height: 100vh;
+  position: relative;
 
   &--list {
     display: flex;
@@ -40,6 +41,48 @@
 
   &--image {
     border: 3px solid $color-light;
+  }
+}
+
+.container__search {
+  background-color: $color-secondary;
+  width: rem(50);
+  height: rem(50);
+  border-radius: rem(20);
+  position: fixed;
+  right: rem(40);
+  bottom: rem(20);
+  cursor: pointer;
+  display: none;
+  transform: translate(0, -25px);
+  animation-name: button-move;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+  & .link__search {
+    width: rem(50);
+    height: rem(50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .icon {
+      font-size: rem(20);
+    }
+  }
+}
+
+@keyframes button-move {
+  0% {
+    transform: translate(0, -30px);
+  }
+  50% {
+    transform: translate(0, -25px);
+  }
+  50% {
+    transform: translate(0, -25px);
+  }
+  100% {
+    transform: translate(0, -30px);
   }
 }
 
