@@ -35,6 +35,8 @@
 .logo__container {
   width: rem(150);
   border-bottom: solid rem(1) $color-extra-light;
+  margin: 0 auto;
+  padding-bottom: rem(15);
   &--img {
     border-radius: rem(10);
     width: 100%;
@@ -47,8 +49,9 @@
   display: block;
 
   & span {
-    background-color: $color-medium;
+    background-color: transparentize($color-medium, 0.2);
     padding: rem(5);
+    z-index: 999;
     & .icon {
       color: $color-secondary;
       padding-right: rem(30);
@@ -117,6 +120,7 @@
         right: rem(15);
         transition: color 0.5s ease;
         cursor: pointer;
+        padding-left: rem(10);
 
         &:hover {
           color: $color-secondary;
