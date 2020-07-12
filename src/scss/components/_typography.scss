@@ -17,7 +17,7 @@ body {
 
   &--separator {
     font-size: $font-extra-medium;
-    color: $color-medium-dark;
+    color: transparentize($color-dark, 0.5);
     text-align: center;
   }
 

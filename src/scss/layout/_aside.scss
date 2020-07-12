@@ -49,24 +49,34 @@
   display: block;
 
   & span {
-    background-color: transparentize($color-medium, 0.2);
-    padding: rem(5);
     z-index: 999;
+    padding: rem(5);
     & .icon {
       color: $color-secondary;
       padding-right: rem(30);
     }
   }
 
-  &:after {
+  &:before {
     content: '';
-    width: 100%;
+    width: 23%;
     height: rem(1);
     background-color: $color-medium-dark;
     z-index: -1;
     position: absolute;
     top: rem(15);
     left: 0;
+  }
+  &:after {
+    content: '';
+    width: 18%;
+    height: rem(1);
+    background-color: $color-medium-dark;
+    z-index: -1;
+    position: absolute;
+    top: rem(15);
+    right: 0;
+    padding-left: rem(5);
   }
 }
 

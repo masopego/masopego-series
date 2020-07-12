@@ -39,7 +39,7 @@
 
       & .search__form {
         border: none;
-        background-color: $color-medium;
+        background-color: $color-medium !important;
         width: 100%;
         letter-spacing: rem(3);
       }
