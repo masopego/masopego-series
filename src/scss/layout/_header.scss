@@ -21,4 +21,27 @@
       display: none;
     }
   }
+
+  &__search {
+    padding: rem(10) rem(20);
+    background-color: $color-medium;
+    border-radius: rem(10);
+    width: 50%;
+
+    @include tablet {
+      width: 80%;
+    }
+
+    & .search__parent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & .search__form {
+        border: none;
+        background-color: $color-medium;
+        width: 100%;
+      }
+    }
+  }
 }

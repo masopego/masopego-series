@@ -1,14 +1,20 @@
 .button {
-  height: rem(60);
   text-align: center;
   font-size: $font-medium;
   border: none;
-  width: 100%;
+  cursor: pointer;
 
   &--remove {
     padding: rem(5);
     background-color: $color-extra-light;
     color: $color-dark;
     letter-spacing: rem(3);
+    width: 100%;
+    height: rem(60);
+  }
+
+  &--search {
+    border-left: rem(1) solid $color-medium-dark;
+    padding-left: rem(10);
   }
 }

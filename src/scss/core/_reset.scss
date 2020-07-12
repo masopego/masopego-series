@@ -361,3 +361,10 @@ template {
 ul {
   list-style-type: none;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}

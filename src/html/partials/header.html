@@ -3,20 +3,17 @@
     <nav class="header__menu js-hamburger">
       <span class="header__menu--icon icon icon-hamburger"></span>
     </nav>
-    <div class="header--search">
-      <form method="GET" action="">
-        <label for="userSearch">
-          Buscador de series
+    <div class="header__search">
+      <form method="GET" action="" class="search__parent">
           <input
-            class="js-search__form"
+            class="js-search__form uppercase search__form"
             type="text"
             id="userSearch"
             name="userSearch"
             placeholder="Búsqueda"
           />
-        </label>
-        <button class="js-search__button" type="submit">
-          <i class="fas fa-search"></i>
+        <button class="js-search__button button button--search" type="submit">
+          <i class="icon icon--search fas fa-search"></i>
         </button>
       </form>
     </div>
