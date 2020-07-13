@@ -6,7 +6,25 @@ $display: 1280px;
 /* FONT SIZES */
 
 $font-regular: 16;
+$font-small: rem(14);
+$font-extra-medium: rem(18);
+$font-medium: rem(20);
+$font-large: rem(24);
+$font-extra-large: rem(50);
+$font-extra-ex-large: rem(60);
 
 /* FONT FAMILY */
 
+$font-primary: 'Lato', sans-serif;
+$font-secondary: 'Oswald', sans-serif;
+$font-tertiary: 'Gloria Hallelujah', cursive;
+
 /* COLORS */
+
+$color-light: #fbfcfc;
+$color-medium-dark: #babfcc;
+$color-medium: #efefef;
+$color-dark: #17202a;
+$color-extra-light: #fcd633;
+$color-secondary: #f39c12;
+$color-tertiary: #af601a;

@@ -2,8 +2,11 @@
 @import 'core/variables';
 @import 'core/mixins';
 @import 'core/reset';
-@import 'components/links';
+@import 'components/typography';
+@import 'components/icons';
+@import 'components/buttons';
 @import 'layout/page';
 @import 'layout/header';
+@import 'layout/main';
+@import 'layout/aside';
 @import 'layout/footer';
-@import 'pages/index';

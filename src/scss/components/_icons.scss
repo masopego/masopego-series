@@ -1,0 +1,30 @@
+.icon {
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.icon-hamburger {
+    background-image: url('../images/ico-menu.svg');
+    width: rem(20);
+    height: rem(20);
+  }
+
+  &.icon-star {
+    padding: rem(5);
+    color: $color-light;
+    width: rem(20);
+    height: rem(20);
+  }
+
+  &.icon--search {
+    color: $color-dark;
+  }
+
+  &.icon--onsearch {
+    color: $color-light;
+  }
+
+  &.icon--user {
+    font-size: rem(30);
+    color: $color-tertiary;
+  }
+}

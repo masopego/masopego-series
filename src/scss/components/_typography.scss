@@ -1,0 +1,47 @@
+body {
+  font-family: $font-primary;
+}
+
+.title {
+  font-size: $font-secondary;
+  font-weight: 600;
+
+  &--main {
+    font-size: $font-extra-large;
+
+    @include tablet {
+      font-size: $font-extra-ex-large;
+      letter-spacing: rem(3);
+    }
+  }
+
+  &--medium {
+    font-size: $font-large;
+  }
+
+  &--small {
+    font-size: $font-small;
+    color: $color-tertiary;
+  }
+
+  &--separator {
+    font-size: $font-extra-medium;
+    color: transparentize($color-dark, 0.5);
+    text-align: center;
+  }
+
+  &--list {
+    font-size: $font-small;
+    color: $color-dark;
+    text-decoration: underline;
+    line-height: rem(25);
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
