@@ -11,6 +11,20 @@ const iconClose = document.querySelector('.js-close');
 const searchScrolled = document.querySelector('.js-search-scrolled');
 const onLinkStart = document.querySelector('.js-on--link');
 
+const printTextListEmpty = `<div class="container__collection">
+  <h2 class="collection__title title capitalize">La lista está vacía</h2>
+  <p class="collection__text">
+    Inicia la búsqueda para agregar series a esta lista.
+  </p>
+  <div class="collection__link button button--contain">
+    <a
+      href="#userSearch"
+      class="error__link--contain uppercase js-error--link"
+    >
+      ok
+    </a>
+  </div>`;
+
 let results = [];
 let favourites = [];
 
@@ -147,8 +161,8 @@ function printNotResults() {
     <h2 class="error__title title capitalize"> serie no encontrada </h2>
     <p class="error__text"> No hay resultados para el valor introducido. Por favor, revisa la búsqueda. </p>
     <div class="error__link button button--contain"> <a href="#userSearch" class="error__link--contain uppercase js-error--link">ok</a></div>
-    </div>
-    `;
+    </div>`;
+
   searchResults.appendChild(textNotResult);
   const searchNotFoundLink = document.querySelector('.js-error--link');
   searchNotFoundLink.addEventListener('click', (ev) => {
@@ -184,6 +198,10 @@ function printFavourites() {
   let favouriteList = document.createElement('ul');
   favouriteList.classList.add('favourite__list');
   let favouritElement = '';
+
+  if (favourites.length <= 0) {
+    favouriteResults.innerHTML = printTextListEmpty;
+  }
   for (const favourite of favourites) {
     favouritElement += renderFavouriteElement(favourite.show);
   }
@@ -203,6 +221,7 @@ function clearFavourites() {
     element.classList.remove('js-selected');
   });
   disableResetButton();
+  favouriteResults.innerHTML = printTextListEmpty;
 }
 
 function onTrash(ev) {

@@ -163,3 +163,36 @@
 button:disabled {
   display: none;
 }
+
+.container__collection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-medium;
+  border: rem(1) solid $color-extra-light;
+  padding: rem(10);
+
+  & .collection__title {
+    margin-top: rem(50);
+  }
+
+  & .collection__text {
+    margin-top: rem(20);
+    color: $color-dark;
+    font-weight: 100;
+  }
+
+  & .collection__link {
+    margin-top: rem(20);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &--contain {
+      width: 100%;
+    }
+  }
+}
