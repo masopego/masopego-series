@@ -17,4 +17,12 @@
     border-left: rem(1) solid $color-tertiary;
     padding-left: rem(10);
   }
+
+  &--contain {
+    color: $color-dark;
+    letter-spacing: rem(3);
+    background-color: $color-extra-light;
+    width: rem(300);
+    height: rem(50);
+  }
 }

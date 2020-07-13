@@ -42,6 +42,11 @@
         background-color: $color-medium !important;
         width: 100%;
         letter-spacing: rem(3);
+        padding: rem(5);
+        margin-right: rem(5);
+        &:focus {
+          border: rem(1) solid $color-extra-light;
+        }
       }
 
       & .button {

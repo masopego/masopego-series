@@ -9,6 +9,7 @@ const aside = document.querySelector('.js-aside');
 const menuHamburger = document.querySelector('.js-hamburger');
 const iconClose = document.querySelector('.js-close');
 const searchScrolled = document.querySelector('.js-search-scrolled');
+const onLinkStart = document.querySelector('.js-on--link');
 
 let results = [];
 let favourites = [];
@@ -31,6 +32,11 @@ document.addEventListener('scroll', onScroll);
 searchScrolled.addEventListener('click', (ev) => {
   ev.preventDefault();
   searchForm.focus();
+});
+onLinkStart.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  searchForm.focus();
+  searchForm.value = '';
 });
 
 function onSearch(ev) {
@@ -140,7 +146,7 @@ function printNotResults() {
   textNotResult.innerHTML = `<div class="container__error">
     <h2 class="error__title title capitalize"> serie no encontrada </h2>
     <p class="error__text"> No hay resultados para el valor introducido. Por favor, revisa la búsqueda. </p>
-    <div class="error__link button"> <a href="#userSearch" class="error__link--contain uppercase js-error--link">ok</a></div>
+    <div class="error__link button button--contain"> <a href="#userSearch" class="error__link--contain uppercase js-error--link">ok</a></div>
     </div>
     `;
   searchResults.appendChild(textNotResult);

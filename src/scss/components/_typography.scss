@@ -6,6 +6,15 @@ body {
   font-size: $font-secondary;
   font-weight: 600;
 
+  &--main {
+    font-size: $font-extra-large;
+
+    @include tablet {
+      font-size: $font-extra-ex-large;
+      letter-spacing: rem(3);
+    }
+  }
+
   &--medium {
     font-size: $font-large;
   }

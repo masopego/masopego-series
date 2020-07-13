@@ -3,6 +3,51 @@
   height: 100vh;
   position: relative;
 
+  & .welcome__container {
+    margin-top: rem(70);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    & .title--main {
+      margin-bottom: rem(60);
+      & span {
+        display: block;
+      }
+    }
+
+    & .blockquote {
+      color: $color-dark;
+      font-weight: 100;
+      margin-right: rem(200);
+      line-height: rem(20);
+      text-align: left;
+
+      @include display {
+        margin-right: rem(500);
+      }
+    }
+
+    & .container__button {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      & .star__link {
+        margin-top: rem(50);
+        margin-bottom: rem(50);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &--contain {
+          width: 100%;
+        }
+      }
+    }
+  }
+
   &--list {
     display: flex;
     flex-direction: column;
@@ -92,21 +137,18 @@
     margin-top: rem(30);
     line-height: rem(20);
   }
+}
 
-  & .error__link {
-    margin-top: rem(20);
-    background-color: $color-extra-light;
+.error__link {
+  margin-top: rem(50);
+  margin-bottom: rem(50);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &--contain {
     width: 100%;
-    height: rem(50);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &--contain {
-      color: $color-dark;
-      letter-spacing: rem(3);
-      width: 100%;
-    }
   }
 }
 
