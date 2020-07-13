@@ -137,8 +137,19 @@ function renderFavouriteElement(element) {
 
 function printNotResults() {
   let textNotResult = document.createElement('p');
-  textNotResult.innerHTML = 'No hay resultados. Por favor, revisa la búsqueda.';
+  textNotResult.innerHTML = `<div class="container__error">
+    <h2 class="error__title title capitalize"> serie no encontrada </h2>
+    <p class="error__text"> No hay resultados para el valor introducido. Por favor, revisa la búsqueda. </p>
+    <div class="error__link button"> <a href="#userSearch" class="error__link--contain uppercase js-error--link">ok</a></div>
+    </div>
+    `;
   searchResults.appendChild(textNotResult);
+  const searchNotFoundLink = document.querySelector('.js-error--link');
+  searchNotFoundLink.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    searchForm.focus();
+    searchForm.value = '';
+  });
 }
 
 function onClickSeries(ev) {
