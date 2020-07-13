@@ -85,7 +85,6 @@ function getSeries(search) {
     .then((response) => response.json())
     .then((data) => {
       results = data;
-      console.log('Results', data);
       if (data.length === 0) {
         printNotResults();
       } else {

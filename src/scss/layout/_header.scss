@@ -8,6 +8,8 @@
     height: 60px;
   }
 
+  /* Menú de Navegación Hamburguesa */
+
   &__menu {
     width: 44px;
     height: 44px;
@@ -22,6 +24,7 @@
     }
   }
 
+  /* Buscador */
   &__search {
     padding: rem(10) rem(20);
     background-color: $color-medium;
@@ -61,6 +64,8 @@
       }
     }
   }
+
+  /* Icono de Usuario */
 
   &__user {
     background-color: $color-light;

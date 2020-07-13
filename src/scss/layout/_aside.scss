@@ -21,6 +21,7 @@
     transform: translateX(0);
   }
 
+  /* Icono de cerrar pestaña */
   & .icon-close {
     position: absolute;
     right: rem(15);
@@ -41,6 +42,8 @@
     }
   }
 }
+
+/* Logo MASOPEGO SERIES */
 .logo__container {
   width: rem(150);
   margin: 0 auto;
@@ -51,6 +54,7 @@
   }
 }
 
+/* Título sección Favoritos */
 .title--separator {
   margin-bottom: rem(10);
   position: relative;
@@ -87,6 +91,8 @@
     padding-left: rem(5);
   }
 }
+
+/* Lista de Resultados Favoritos */
 
 .favourite__list {
   display: flex;
@@ -160,9 +166,13 @@
   }
 }
 
+/* Estado botón "Eliminar Lista" */
+
 button:disabled {
   display: none;
 }
+
+/* Texto de Lista vacía */
 
 .container__collection {
   display: flex;

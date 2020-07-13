@@ -3,6 +3,7 @@
   height: 100%;
   position: relative;
 
+  /* Portada de Bienvenida */
   & .welcome__container {
     margin-top: rem(70);
     display: flex;
@@ -48,6 +49,8 @@
     }
   }
 
+  /* Mostrar resultados de la búsqueda */
+
   &--list {
     display: flex;
     flex-direction: column;
@@ -76,6 +79,8 @@
 .list__container {
   position: relative;
 
+  /* Icono Estrella */
+
   &--icon {
     position: absolute;
     top: rem(10);
@@ -88,6 +93,8 @@
     border: 3px solid $color-light;
   }
 }
+
+/* Botón scroll de búsqueda */
 
 .container__search {
   background-color: $color-secondary;
@@ -119,6 +126,8 @@
     }
   }
 }
+
+/* Contenedor Texto búsqueda no encontrada */
 
 .container__error {
   width: rem(300);
@@ -172,6 +181,7 @@
   }
 }
 
+/* Estilos Tarjetas Favoritas */
 .js-selected {
   & .list__container--image {
     box-shadow: rem(2) rem(1) rem(25) rem(-2) rgba(23, 32, 42, 1);
