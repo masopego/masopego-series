@@ -56,7 +56,7 @@ function onMenuChange(ev) {
 }
 
 function onScroll(ev) {
-  window.pageYOffset >= 150
+  window.pageYOffset >= 200
     ? (searchScrolled.style.display = 'block')
     : (searchScrolled.style.display = 'none');
 }
@@ -217,8 +217,6 @@ function onTrash(ev) {
   let yetselected = yetinListArr.find(
     (element) => parseInt(element.dataset.id) === serieIdentifier
   );
-
-  console.log(yetselected);
   if (yetselected) {
     yetselected.classList.remove('js-selected');
   }
