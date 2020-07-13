@@ -10,6 +10,7 @@ const menuHamburger = document.querySelector('.js-hamburger');
 const iconClose = document.querySelector('.js-close');
 const searchScrolled = document.querySelector('.js-search-scrolled');
 const onLinkStart = document.querySelector('.js-on--link');
+const favouriteLink = document.querySelector('.js-favourite--link');
 
 const printTextListEmpty = `<div class="container__collection">
   <h2 class="collection__title title capitalize">La lista está vacía</h2>
@@ -254,3 +255,9 @@ function enableResetButton() {
 function disableResetButton() {
   resetButton.setAttribute('disabled', '');
 }
+
+favouriteLink.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  searchForm.focus();
+  searchForm.value = '';
+});
