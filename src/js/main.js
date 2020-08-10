@@ -29,6 +29,8 @@ const printTextListEmpty = `<div class="container__collection">
 let results = [];
 let favourites = [];
 
+// Función en la que traemos los favoritos al carga la página
+
 function getfavourites() {
   const favouritesSaved = JSON.parse(localStorage.getItem('favourites'));
   if (favouritesSaved && favouritesSaved.length > 0) {
@@ -37,7 +39,7 @@ function getfavourites() {
     enableResetButton();
   }
 }
-getfavourites();
+getfavourites(); // Ejecuto la función
 
 searchButton.addEventListener('click', onSearch);
 resetButton.addEventListener('click', onReset);
@@ -54,11 +56,15 @@ onLinkStart.addEventListener('click', (ev) => {
   searchForm.value = '';
 });
 
+// Función en la que pinto los resultados de la búsqueda de series
+
 function onSearch(ev) {
   ev.preventDefault();
   clearResults();
   getSeries(searchForm.value);
 }
+
+// Función para limpiar favoritos
 
 function onReset(ev) {
   favourites = [];
@@ -66,9 +72,13 @@ function onReset(ev) {
   clearFavourites();
 }
 
+// Función para desplegar el menú de aside al pinchar
+
 function onMenuChange(ev) {
   aside.classList.toggle('js-opened');
 }
+
+// Función para el botón de scroll
 
 function onScroll(ev) {
   window.pageYOffset >= 200
@@ -76,12 +86,16 @@ function onScroll(ev) {
     : (searchScrolled.style.display = 'none');
 }
 
+// Función en la que vacío el contenedor de resultados de series
+
 function clearResults() {
   searchResults.innerHTML = '';
 }
 
+// Función en la que recojo los valores de la API
+
 function getSeries(search) {
-  fetch(`http://api.tvmaze.com/search/shows?q=${search}`)
+  fetch(`https://api.tvmaze.com/search/shows?q=${search}`)
     .then((response) => response.json())
     .then((data) => {
       results = data;
@@ -93,6 +107,7 @@ function getSeries(search) {
     });
 }
 
+// Función en la que pinto los resultados
 function printSeries(data) {
   const seriesList = document.createElement('ul');
   seriesList.classList.add('main--list');
@@ -110,6 +125,7 @@ function printSeries(data) {
   });
 }
 
+// Función en la que construyo los resultados
 function renderSingleElement(element) {
   const image = element.image
     ? element.image.medium
@@ -129,6 +145,8 @@ function renderSingleElement(element) {
     <h3 class="title title--list uppercase">${element.name}</h3>
     </li>`;
 }
+
+//Función para pintar la lista en favoritos
 
 function renderFavouriteElement(element) {
   const image = element.image
@@ -155,6 +173,8 @@ function renderFavouriteElement(element) {
     </li>`;
 }
 
+// Pintar texto No resultados
+
 function printNotResults() {
   let textNotResult = document.createElement('p');
   textNotResult.innerHTML = `<div class="container__error">
@@ -172,6 +192,7 @@ function printNotResults() {
   });
 }
 
+// Función para arreglar la serie a favoritos
 function onClickSeries(ev) {
   ev.currentTarget.classList.toggle('js-selected');
   const serieIdentifier = parseInt(ev.currentTarget.dataset.id);
@@ -193,6 +214,7 @@ function onClickSeries(ev) {
   printFavourites();
 }
 
+// Función para pintar favortios
 function printFavourites() {
   favouriteResults.innerHTML = '';
   let favouriteList = document.createElement('ul');
@@ -214,6 +236,7 @@ function printFavourites() {
   });
 }
 
+// Función en la que elimino favoritos
 function clearFavourites() {
   favouriteResults.innerHTML = '';
   const yetSelectedFavourites = document.querySelectorAll('.js-selected');
@@ -223,6 +246,8 @@ function clearFavourites() {
   disableResetButton();
   favouriteResults.innerHTML = printTextListEmpty;
 }
+
+// Función para eliminar cada favorito al tocar el botón de cerrar
 
 function onTrash(ev) {
   const serieIdentifier = parseInt(ev.target.dataset.id);
@@ -240,17 +265,19 @@ function onTrash(ev) {
     yetselected.classList.remove('js-selected');
   }
 
-  printFavourites();
+  printFavourites(); // los pintas
 
   if (favourites.length === 0) {
     disableResetButton();
   }
 }
 
+// quitas el botón
 function enableResetButton() {
   resetButton.removeAttribute('disabled');
 }
 
+// activas el botón
 function disableResetButton() {
   resetButton.setAttribute('disabled', '');
 }
